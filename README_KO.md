@@ -1,5 +1,7 @@
 # 팰리세이드 LX2 무선 Apple CarPlay / Android Auto
 
+**한국어** | [English](README_EN.md)
+
 > ⚠️ **비공식 실험용 프로젝트 — 설치 전에 읽어 주세요**
 >
 > 이 프로젝트는 현대자동차, 기아 또는 다른 자동차 제조사와 제휴하지 않은 독립 프로젝트이며 제조사의 승인이나 보증을 받지 않았습니다. 설치와 사용은 자발적인 선택이며 사용자 자신의 판단과 책임하에 이루어집니다.
@@ -10,7 +12,7 @@
 >
 > **주행 중 설치·조작·시험하지 마세요.** 안전한 장소에 주차하고 전원 공급과 환기를 확보하세요. 시작 전에 필요한 데이터의 백업과 실제 사용할 수 있는 복구 수단을 준비하세요.
 
-[English](README.md) · [호환성](docs/COMPATIBILITY.md) · [시험 결과](docs/TEST_RESULTS.md) · [문제 해결](docs/TROUBLESHOOTING.md)
+[English](README_EN.md) · [호환성](docs/COMPATIBILITY.md) · [시험 결과](docs/TEST_RESULTS.md) · [문제 해결](docs/TROUBLESHOOTING.md)
 
 ## 현재 상태 — 설치 파일 배포 전
 
@@ -33,6 +35,8 @@ Android Auto에서 CarPlay로 전환할 때 처음 검은 화면이 발생했고
 
 **버전 선택:** beta.6은 보고된 시험 버전이지 지금 설치를 권장하거나 제공하는 버전이 아닙니다. 현재 공식 HMG-API의 NEMESIS Package Store 경로는 NEMESIS **1.16 이상**이 필요합니다. 이는 현재 공식 설치 요건이며 시험 차량의 최종 NEMESIS 버전이나 현재 버전 조합의 실차 검증을 의미하지 않습니다. 정확한 조합과 LX2 후크 맵·복구 경로가 검증될 때까지 새 설치를 중단하세요.
 
+[한국어 상세 설치 안내](docs/INSTALLATION_KO.md) · [English installation guide](docs/INSTALLATION_EN.md)
+
 ## 설치 안내: NEMESIS → HMG-API → LX2 모드
 
 **아래는 공식 문서에 근거한 절차 설명입니다. 현재 LX2 모드 ZIP, 정확한 호환 HMG-API 빌드 및 재현 가능한 후크 맵 설치 경로가 배포·검증되지 않았으므로 실제 설치를 진행하지 마세요.** 버전마다 메뉴와 설치 경로가 달라질 수 있습니다.
@@ -43,13 +47,46 @@ Android Auto에서 CarPlay로 전환할 때 처음 검은 화면이 발생했고
 2. 공식 [NEMESIS 호환성 안내](https://github.com/xwtk/hmg_nemesis#compatibility-check)를 읽습니다. Android 기반 Gen5W의 `S5W_M`과 실제 OTA 업데이트 지원이 필요하며, Engineering Mode에 Update OTA 항목이 보이는 것만으로 OTA 지원이 증명되지는 않습니다. 공식 문서는 일부 차종이 이 조건을 갖춰도 동작하지 않을 수 있다고 설명합니다.
 3. 컴퓨터, 빈 USB, 안정적인 전원, 백업과 복구 방법을 준비합니다. 포맷은 USB의 데이터를 지웁니다. 호환성이나 복구 방법을 확신할 수 없으면 중단합니다.
 
+### USB 구성 미리 보기
+
+각 단계는 서로 다른 USB 구성입니다. 같은 USB를 재사용한다면 이전 단계 파일을 정리하고 해당 단계의 공식 안내에 따라 준비하세요. `USB/`는 USB 드라이브의 최상위라는 뜻입니다.
+
+**NEMESIS 초기 설치** — TAR 파일을 그대로 복사:
+
+```text
+USB/
+└── ota_package.tar
+```
+
+**HMG-API의 NEMESIS Package Store 방식** — 해당 ZIP을 USB 최상위에 압축 해제:
+
+```text
+USB/
+├── NEMESIS.data
+├── packages/
+│   └── … 공식 패키지 파일 …
+└── README …
+```
+
+**모드 설치** — 승인된 모드 ZIP을 압축 해제하지 않고 복사 (현재 배포 전):
+
+```text
+USB/
+└── HMGAPI/
+    └── updates/
+        └── wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip
+```
+
+HMG-API의 **직접 USB 방식**은 별도의 `hmgapi-<version>-usb.zip`을 사용하며, 해당 버전 ZIP의 README대로 USB 최상위에 압축을 풉니다. 위 NEMESIS 패키지 구조로 가정하지 마세요.
+
 ### 2. 공식 NEMESIS 다운로드 및 설치
 
 1. [NEMESIS 공식 GitHub](https://github.com/xwtk/hmg_nemesis)에서 설치 안내와 `ota_package.tar` 링크를 확인하고 공식 파일을 받습니다. [상세 설치 문서](https://github.com/xwtk/hmg_nemesis/blob/main/03-Install-and-Uninstall.md)도 확인하세요.
 2. 빈 USB를 FAT32 또는 exFAT로 포맷하고 `ota_package.tar`를 **압축을 풀거나 다시 압축하지 않고 USB 최상위**에 복사합니다.
 3. 주차 상태에서 차량 USB 포트에 꽂고, 해당 장치의 공식 안내에 따라 Engineering Mode > USB Copy > Update DSP > Update OTA로 들어갑니다. 진입 방법은 장치마다 다르므로 비밀번호나 코드를 추측하지 마세요. 파일을 지원하지 않는다는 일반 USB 메시지가 보일 수 있습니다.
 4. 공식 안내대로 설치가 완료되고 헤드유닛이 재시작할 때까지 기다립니다. 재시작 후 NEMESIS Manager가 열리는지와 버전을 확인합니다. 설치 진행이 확인되지 않거나 오류·재부팅 반복이 발생하면 계속 시도하지 말고 중단해 공식 문제 해결 안내를 따르세요.
-5. NEMESIS 1.15 이하는 현재 공식 README에서 1.16으로 올릴 때 초기 설치 절차를 다시 사용하도록 안내합니다. 1.16 이상은 공식 업데이트 파일을 이용하는 별도 방법이 있습니다. [현재 공식 업데이트 설명](https://github.com/xwtk/hmg_nemesis#updating-nemesis)을 확인하세요. **업데이트 자체가 이 프로젝트의 호환성을 입증하지 않습니다.**
+5. 현재 공식 문서에서는 Manager에서 설정된 물리 버튼을 세 번 눌러 Manager를 여는 방법을 설명합니다. 신규 설치 기본 버튼은 Navigation으로 기재되어 있으나 버전·설정에 따라 다를 수 있습니다. [공식 Manager 안내](https://github.com/xwtk/hmg_nemesis/blob/main/02-Debugging-Execution-Interface.md)를 먼저 확인하고 현재 버전과 선택된 버튼을 모르면 추측하지 마세요. Manager의 버전 표시 또는 해당 버전의 공식 안내로 버전을 확인하세요.
+6. NEMESIS 1.15 이하는 현재 공식 README에서 1.16으로 올릴 때 초기 설치 절차를 다시 사용하도록 안내합니다. 1.16 이상은 공식 업데이트 파일을 이용하는 별도 방법이 있습니다. [현재 공식 업데이트 설명](https://github.com/xwtk/hmg_nemesis#updating-nemesis)을 확인하세요. **업데이트 자체가 이 프로젝트의 호환성을 입증하지 않습니다.**
 
 ### 3. 공식 HMG-API 설치와 후크 확인
 
@@ -63,13 +100,31 @@ Android Auto에서 CarPlay로 전환할 때 처음 검은 화면이 발생했고
 ### 4. LX2 모드 설치 — ZIP 배포 승인 후에만
 
 1. 승인된 Release가 제공되면 `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip`과 공식적으로 제공된 체크섬을 받아 확인합니다. **현재는 제공되지 않습니다.**
-2. USB 최상위에 `HMGAPI/updates/` 폴더를 만들고 ZIP을 압축 해제하지 않은 채 복사합니다.
-3. 차량에서 HMG-API > **Check USB updates**를 열고 모드를 선택합니다. 작성자·서명·버전·차량 검사 결과를 확인합니다. 신뢰하지 않는 작성자나 호환성 거부가 나오면 중단하세요.
+2. USB 최상위에 `HMGAPI/updates/` 폴더를 만들고 ZIP을 압축 해제하지 않은 채 복사합니다. HMG-API가 서명과 파일 무결성을 검사하므로 ZIP 내부를 수정하거나 다시 압축하지 않습니다.
+3. 차량에서 HMG-API > **Check USB updates**를 열고 모드를 선택합니다. 작성자·서명·버전·차량 검사 결과를 확인합니다. HMG-API는 처음 보는 작성자에 대해 경고할 수 있으며 이후 업데이트는 동일한 작성자 키가 필요합니다. 신뢰하지 않는 작성자나 호환성 거부가 나오면 중단하세요.
 4. 설치 후 메인 화면에서 **Apply changes**를 누르고 적용 계획과 오류 여부를 확인합니다. 안내에 따라 재시작하고 USB를 뺍니다.
 5. **Mods**에서 모드가 표시되고 활성화되어 있는지 확인합니다. 현재 공식 앱 안내에서는 녹색은 실행, 노란색은 충돌, 빨간색은 미실행 또는 오류, 회색은 꺼짐을 뜻합니다. 화면은 버전에 따라 다를 수 있습니다. ‘Changes not applied’ 또는 ‘Restart needed’가 남으면 상태를 확인하고 안내를 따르세요. [공식 모드 안내](https://github.com/VysseCodes/HMG-API/wiki/Installing-and-removing-mods).
 6. 주차 상태에서 iPhone의 Bluetooth와 Wi-Fi를 켜고 차량 전화/프로젝션 설정에서 페어링한 뒤 CarPlay 요청을 허용합니다. Android는 Bluetooth 및 Wi-Fi를 켜고 차량의 Android Auto 페어링 안내를 따릅니다. USB 메모리나 유선 연결이 무선 연결을 방해할 수 있습니다. 화면·오디오·터치를 주차 중 확인하세요.
 
-### 5. 문제가 발생한 경우
+### 5. 휴대폰 최초 연결 — ZIP 배포와 호환성 검증 후
+
+**iPhone**
+
+1. 주차한 상태에서 iPhone의 Wi-Fi와 Bluetooth를 켭니다. 기존 페어링을 삭제하기 전에 필요한 연락처와 설정을 확인하세요.
+2. 차량의 전화 또는 기기 연결 메뉴에서 iPhone을 선택해 페어링합니다. iPhone과 차량에 표시되는 확인 번호가 일치하는지 확인합니다.
+3. iPhone에 CarPlay 사용 또는 허용 요청이 표시되면 내용을 확인하고 승인합니다. 기기·iOS 버전에 따라 표현과 순서는 다를 수 있습니다.
+4. 차량의 CarPlay 화면을 열고 지도, 음악, 터치를 각각 확인합니다. USB 메모리와 유선 연결은 무선 연결에 영향을 줄 수 있으므로 설치가 끝난 USB를 제거하세요.
+
+**Android 휴대폰**
+
+1. 주차한 상태에서 휴대폰의 Wi-Fi와 Bluetooth를 켜고, 휴대폰에서 Android Auto를 사용할 수 있는지 확인합니다.
+2. 차량의 전화 또는 기기 연결 메뉴에서 휴대폰을 페어링하고 양쪽 화면의 확인 번호를 확인합니다.
+3. 휴대폰과 차량에 표시되는 Android Auto 연결 및 권한 요청을 읽고 필요한 경우 승인합니다. 승인 화면과 메뉴 이름은 기기·버전에 따라 다를 수 있습니다.
+4. 차량의 Android Auto 화면을 열고 지도, 음악, 터치를 확인합니다. 이 순서와 화면 문구는 일반 안내이며 모든 폰에서 검증된 정확한 화면 흐름은 아닙니다.
+
+모드가 설치 목록에 나타나는 것과 **실제 무선 연결·영상·오디오가 정상 동작하는 것**은 서로 다른 확인입니다. 한 항목이 실패하면 재시도 전에 아래 문제 해결을 확인하세요.
+
+### 6. 문제가 발생한 경우
 
 검은 화면이 나타나면 정차 상태에서 연결 상태와 화면을 확인하세요. 시험 차량에서는 Bluetooth 재연결과 화면 재진입 후 복구됐지만 다른 상황에서 재현되거나 해결된다는 보장은 없습니다. HMG-API에서 모드를 선택해 스위치를 끄거나 **Remove**를 선택하고 확인한 뒤 **Apply changes**, 안내에 따른 재시작을 진행하세요. 삭제·복구는 차량에서 독립적으로 검증되지 않았습니다. 부팅 반복이나 앱을 열 수 없는 경우 더 진행하지 말고 해당 설치 버전의 [공식 문제 해결](https://github.com/VysseCodes/HMG-API/wiki/Troubleshooting) 및 [제거 안내](https://github.com/VysseCodes/HMG-API/wiki/Uninstalling)를 확인하세요. 무작위 초기화·명령 실행·강제 덮어쓰기는 하지 마세요.
 
