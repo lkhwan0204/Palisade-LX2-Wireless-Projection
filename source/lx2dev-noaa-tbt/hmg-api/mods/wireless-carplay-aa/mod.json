@@ -1,0 +1,154 @@
+{
+  "id": "wireless-carplay-aa-lx2dev",
+  "name": "Wireless Projection LX2 (experimental, AA cluster guidance removed)",
+  "version": "2.1.4-lx2dev.12-noaa-tbt.1",
+  "hmgapi": ">=1.0.0",
+  "authors": [
+    "VysseCodes (original mod, AGPL-3.0)",
+    "LX2 port: unofficial development build"
+  ],
+  "license": "AGPL-3.0",
+  "description": "EXPERIMENTAL host-only build: Android Auto native turn-by-turn recipes and their GPM hook are removed; wireless projection has NOT been validated on a car. UNOFFICIAL development build for the Palisade LX2 (KOR 260902), not verified on a car: a port of VysseCodes' wireless-carplay-aa 2.1.0. lx2dev.12 (numbered 2.1.3: HMG-API compares the text after the dash, so only a higher patch number is safe): wireless Android Auto in PhoneProjection. The stock connects a phone only when the connectivity hotspot is already up and nothing on this unit starts it; when the stock is about to stop for that reason, its call is held while the hotspot is started with the stock request and then made once. Includes the lx2dev.11 hand-over tracking. CarPlay code is unchanged from lx2dev.11. Wireless CarPlay and Android Auto on the head unit's hotspot, with turn-by-turn on the cluster and HUD.",
+  "system": [
+    {
+      "model": [
+        "CVEV",
+        "NEEV",
+        "NEEV23"
+      ],
+      "region": "USA",
+      "firmware": "260507",
+      "features": [
+        "hmgapi.wifi"
+      ]
+    },
+    {
+      "model": [
+        "CVEV",
+        "NEEV"
+      ],
+      "region": "CAN",
+      "firmware": "260206",
+      "features": [
+        "hmgapi.wifi"
+      ]
+    },
+    {
+      "model": [
+        "LX2"
+      ],
+      "region": "KOR",
+      "firmware": "260902",
+      "features": [
+        "hmgapi.wifi"
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "projection"
+    },
+    {
+      "id": "tbt",
+      "when": "settings.tbt"
+    },
+    {
+      "id": "bridge",
+      "when": "settings.bridge"
+    },
+    {
+      "id": "audio",
+      "when": "settings.audio"
+    }
+  ],
+  "feature_flags": [
+    "com.hkmc.software.connectivity.carplay_wireless",
+    "com.hkmc.software.connectivity.androidauto_wireless"
+  ],
+  "logs": {
+    "tags": [
+      "DiPO",
+      "GPM",
+      "Iap2",
+      "GalReceiver"
+    ],
+    "match": [
+      "HMG-API:"
+    ]
+  },
+  "hooks": {
+    "jar": "hooks.jar",
+    "entry": "hmgapi.mods.wireless.Wireless",
+    "points": {
+      "framework.context_impl.start_service": "replace",
+      "btsettings.projection_helper.open_wireless_page": "replace",
+      "framework.navigation_cluster.update_tbt_info": "replace",
+      "framework.navigation_cluster.update_tbt_sub_info": "replace",
+      "framework.navigation_cluster.update_tbt_sub_info_b": "replace",
+      "framework.navigation_cluster.update_tbt_sub_info2": "replace",
+      "framework.navigation_cluster.update_tbt_sub_info2_b": "replace",
+      "framework.navigation_cluster.update_tbt_sub_info_2c": "replace",
+      "framework.navigation_cluster.update_remain_dis": "replace",
+      "framework.navigation_cluster.update_tp_crossroad_name": "replace",
+      "framework.navigation_cluster.update_tp_destination_name": "replace",
+      "framework.navigation_cluster.update_tp_turn_list": "replace",
+      "framework.navigation_cluster.update_tp_turn_list_new": "replace",
+      "framework.navigation_cluster.update_tp_lane_info": "replace",
+      "iap2.init_info.check_supports_features": "change",
+      "iap2.service.on_create": "observe",
+      "iap2.service_receiver.on_receive": "observe",
+      "gpm.navigation_status.init": "change",
+      "gpm.navigation_status.next_turn": "observe",
+      "gpm.navigation_status.next_turn_distance": "observe",
+      "gpm.navigation_status.status": "observe",
+      "gpm.receiver.send_navigation_focus": "observe",
+      "gpm.receiver.destroy": "observe",
+      "dipo.iap2_proxy.stop_route_guidance": "observe",
+      "dipo.btcm.register_listener": "observe",
+      "dipo.carplay.session_created": "observe",
+      "dipo.carplay.session_started": "observe",
+      "dipo.carplay.session_finalized": "observe",
+      "dipo.carplay.iap_message": "observe",
+      "dipo.utils.is_support_wireless_carplay": "replace",
+      "dipo.iap2_listener.connected": "replace",
+      "dipo.iap2_listener.disconnected": "replace",
+      "dipo.iap2_listener.notify": "replace",
+      "dipo.session_listener.session_details": "observe",
+      "dipo.iap2.bt_address": "change",
+      "dipo.bt.set_carplay_bt_address": "replace"
+    },
+    "native": {
+      "libCarPlayCore.so": [
+        "recipes/carplay-core-wifi.recipe"
+      ],
+      "libCarPlayAudio.so": [
+        "recipes/carplay-audio-formats.recipe"
+      ],
+      "libCarPlayUtils.so": [
+        "recipes/carplay-utils-converter.recipe"
+      ]
+    }
+  },
+  "services": [
+    {
+      "name": "stocklog",
+      "script": "svc/stocklog.sh",
+      "args": [
+        "lx2dev.12"
+      ],
+      "user": "root",
+      "start": "android",
+      "restart": true
+    },
+    {
+      "name": "aastage",
+      "script": "svc/aastage.sh",
+      "args": [
+        "lx2dev.12"
+      ],
+      "user": "root",
+      "start": "android",
+      "restart": true
+    }
+  ]
+}

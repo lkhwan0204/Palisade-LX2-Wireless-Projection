@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "settings": [
+    {
+      "key": "tbt",
+      "type": "toggle",
+      "default": false,
+      "title": "CarPlay turn-by-turn on the cluster and HUD",
+      "apply": "rebuild",
+      "description": "Android Auto turn-by-turn is excluded from this experimental build."
+    },
+    {
+      "key": "bridge",
+      "type": "toggle",
+      "default": true,
+      "title": "Wireless CarPlay (Bluetooth bridge and Wi-Fi sessions)",
+      "apply": "rebuild"
+    },
+    {
+      "key": "audio",
+      "type": "toggle",
+      "default": false,
+      "title": "CarPlay music and Siri over Wi-Fi (AAC, Opus)",
+      "apply": "rebuild"
+    },
+    {
+      "key": "menu",
+      "type": "toggle",
+      "default": false,
+      "title": "Settings > Phone Projection opens Device Connections",
+      "apply": "restart",
+      "description": "A hook in the Settings app (no files changed). US/Canada only; other regions keep the stock choice."
+    },
+    {
+      "key": "usb_drives",
+      "type": "toggle",
+      "default": false,
+      "apply": "restart",
+      "title": "USB drives and hubs don't start wired Android Auto",
+      "description": "A hook in the Android Auto app (no files changed). Without it, a USB drive can block wireless Android Auto until the head unit restarts."
+    }
+  ]
+}

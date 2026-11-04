@@ -1,0 +1,41 @@
+{
+  "cars": {
+    "CVEV.USA.": "ev6",
+    "CVEV.CAN.": "ev6_ca",
+    "NEEV.USA.": "neev",
+    "NEEV.CAN.": "neev_ca",
+    "NEEV23.USA.": "neev",
+    "LX2.KOR.": "lx2"
+  },
+  "stock": "patches/{set}/stock",
+  "expect": "patches/{set}/expect",
+  "changes": [
+    {
+      "type": "lines",
+      "path": "/system/onebin/{onebin}/featurexml.cfg",
+      "stock": "any",
+      "part": "projection",
+      "comment": [
+        "-/system/etc/permissions/com.hkmc.software.wifihotspot.xml"
+      ]
+    },
+    {
+      "type": "prop",
+      "key": "persist.ium.support",
+      "value": "carplay",
+      "part": "projection"
+    },
+    {
+      "type": "prop",
+      "key": "persist.sys.iap2.wifi",
+      "value": "t",
+      "part": "bridge"
+    },
+    {
+      "type": "prop",
+      "key": "persist.iap2.iden.wireless",
+      "value": "t",
+      "part": "bridge"
+    }
+  ]
+}
