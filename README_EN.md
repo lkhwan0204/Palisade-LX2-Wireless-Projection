@@ -2,6 +2,16 @@
 
 [한국어](README.md) | **English**
 
+## Download — experimental pre-release
+
+[Download experimental ZIP](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/download/v2.1.4-lx2dev.12-noaa-tbt.1/wireless-carplay-aa-lx2dev-2.1.4-lx2dev.12-noaa-tbt.1.zip) · [SHA256SUMS](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/download/v2.1.4-lx2dev.12-noaa-tbt.1/SHA256SUMS) · [Pre-release notes](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/tag/v2.1.4-lx2dev.12-noaa-tbt.1)
+
+SHA-256: `ff99564ae90cb650beda6581b270893ff3d370d48cd2131619f24f9371b36749`
+
+> ⚠️ **This experimental build has not been tested on a vehicle; installation is not recommended.** The exact tested HMG-API build and LX2 hook map, removal and recovery path have not been established. A download does not prove safe installation or working functionality.
+>
+> The released `2.1.4-lx2dev.12-noaa-tbt.1` is **different** from the reported vehicle-tested original `2.1.3-lx2dev.12`. Android Auto cluster/HUD turn guidance is excluded, and basic CarPlay and Android Auto connectivity are also unverified in this experimental build. Installing it over 2.1.3 raises the version and an ordinary downgrade to an older ZIP may be rejected.
+
 > ⚠️ **Unofficial experimental project — read before installation**
 >
 > This is an independent project, not affiliated with, endorsed by, or certified by Hyundai Motor Company, Kia, or any other vehicle manufacturer. Installation and use are voluntary and at the user's own risk.
@@ -14,9 +24,9 @@
 
 [한국어](README.md) · [Compatibility](docs/COMPATIBILITY.md) · [Test results](docs/TEST_RESULTS.md) · [Troubleshooting](docs/TROUBLESHOOTING.md)
 
-## Current status — no installable download
+## Current status — experimental release and original
 
-This repository contains **no installation ZIP**. The development artifact `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip` exists locally but is withheld pending corresponding-source/build verification and redistribution review of patch recipes. No Release has been published. The mod steps below describe a future cleared release; **they do not mean the download is available or installation is currently recommended**. Do not use ZIPs of unknown origin. [Distribution review](docs/DISTRIBUTION.md).
+The experimental ZIP and checksum above are available as a pre-release. The original `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip`, for which the vehicle success was reported, remains withheld and is different from the released candidate. For the experimental source and notices see [distribution](docs/DISTRIBUTION.md). **Installation is not recommended until vehicle behavior and a recovery path are verified.**
 
 ## Reported vehicle test
 
@@ -39,7 +49,7 @@ On switching from Android Auto to CarPlay, the screen was initially black; recon
 
 ## Installation guide: NEMESIS → HMG-API → LX2 mod
 
-**This explains documented procedures. The LX2 mod ZIP, an exactly compatible HMG-API build and a reproducible hook-map installation are not yet released and verified, so do not proceed with a new installation.** Menus and routes can change by version.
+**This explains documented procedures. The experimental ZIP has not been tested in a vehicle, and an exactly compatible HMG-API build, reproducible hook-map installation and recovery path are unverified; installation is not recommended.** Menus and routes can change by version.
 
 ### 1. Check the car and prepare
 
@@ -68,13 +78,13 @@ USB/
 └── README …
 ```
 
-**Mod installation** — copy the cleared mod ZIP intact (not available yet):
+**Mod installation** — copy the experimental ZIP intact (installation not recommended):
 
 ```text
 USB/
 └── HMGAPI/
     └── updates/
-        └── wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip
+        └── wireless-carplay-aa-lx2dev-2.1.4-lx2dev.12-noaa-tbt.1.zip
 ```
 
 The **direct HMG-API USB route** uses the separate `hmgapi-<version>-usb.zip`; extract it to the USB root according to that version's included README. Do not assume it uses the NEMESIS package layout.
@@ -97,16 +107,16 @@ Check conflicting packages first. The current official guide lists HMG Leafia Pl
 
 Open HMG-API from the app menu. If its tile is absent, the current official guide offers NEMESIS Manager > My Packages > HMG-API > Launch. Check the top bar for **Hooks on** and the map-check status. Stop if hooks are off, the map is unchecked or unsupported, Boot Guard is active, or an error appears. Hooks on does not guarantee all features work. The exact test map and compatibility with the current official version are not established. Do not force installation or bypass map checks.
 
-### 4. Install the LX2 mod — only after distribution is cleared
+### 4. Install the LX2 mod — only after vehicle validation and a recovery path
 
-1. If a cleared release becomes available, obtain `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip` and its published checksum and verify it. **It is not currently available.**
+1. Download the experimental ZIP above and verify it against [SHA256SUMS](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/download/v2.1.4-lx2dev.12-noaa-tbt.1/SHA256SUMS). **It is downloadable, but installation is not recommended because vehicle behavior and recovery are unverified.**
 2. Create `HMGAPI/updates/` at the USB root and copy the ZIP there without extracting or repacking it, so HMG-API can check the author signature and package integrity.
 3. Open HMG-API > **Check USB updates**, select the mod, and inspect author, signature, version and vehicle checks. Stop on an untrusted author or compatibility rejection.
 4. Return to the main screen, tap **Apply changes**, and review the plan and errors. Restart as instructed and remove the USB.
 5. In **Mods**, confirm the mod appears and is enabled. The current official app guide describes green as running, yellow as conflict, red as not running or error, and grey as off. Labels may differ by version. Check any ‘Changes not applied’ or ‘Restart needed’ status. See the [official mod guide](https://github.com/VysseCodes/HMG-API/wiki/Installing-and-removing-mods).
 6. While parked, enable Bluetooth and Wi-Fi on the iPhone, pair in the car's phone/projection settings and accept CarPlay prompts. For Android, enable Bluetooth and Wi-Fi and follow the car's Android Auto pairing prompts. A USB stick or wired phone can interfere with wireless connection. Check screen, audio and touch while parked.
 
-### 5. First phone connection — after release and compatibility validation
+### 5. First phone connection — after vehicle compatibility and recovery validation
 
 **iPhone**
 

@@ -11,3 +11,9 @@
 The owner reports the following limited test on the target car with `2.1.3-lx2dev.12`: wireless Apple CarPlay and Android Auto connected, and maps, music and touch worked. On switching from Android Auto to CarPlay, the first screen was black; after Bluetooth reconnection and screen re-entry it displayed normally. The cause and recurrence rate are unknown. The exact date, duration, phone models/OS versions and sanitized logs were not provided. This report has not been independently reproduced in this documentation task.
 
 The local development README called .12 untested on a car when it was written. Its saved host results report 767 passing checks, map/script checks and package signature verification; these are historical host-side records, not new tests or proof of in-car behavior. Long-term stability and other vehicle/firmware combinations remain unverified. Removal and recovery have not been independently verified on this car.
+
+## 공개 실험판 / Released experimental build
+
+`2.1.4-lx2dev.12-noaa-tbt.1`은 위에서 보고된 lx2dev.12와 다른 빌드이며 Android Auto 계기판·HUD 길안내를 제외했습니다. 기본 연결·영상·오디오·터치와 제거·복구는 실차 미검증입니다. 설치를 권장하지 않습니다.
+
+`2.1.4-lx2dev.12-noaa-tbt.1` is a different build from the reported lx2dev.12 test and excludes Android Auto cluster/HUD turn guidance. Basic connection, video, audio, touch, removal and recovery have not been tested on a vehicle. Installation is not recommended.

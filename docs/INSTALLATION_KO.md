@@ -2,6 +2,16 @@
 
 **한국어** | [English](../README_EN.md)
 
+## 다운로드 — 공개 실험판
+
+[실험판 ZIP 다운로드](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/download/v2.1.4-lx2dev.12-noaa-tbt.1/wireless-carplay-aa-lx2dev-2.1.4-lx2dev.12-noaa-tbt.1.zip) · [SHA256SUMS](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/download/v2.1.4-lx2dev.12-noaa-tbt.1/SHA256SUMS) · [Pre-release 설명](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/tag/v2.1.4-lx2dev.12-noaa-tbt.1)
+
+SHA-256: `ff99564ae90cb650beda6581b270893ff3d370d48cd2131619f24f9371b36749`
+
+> ⚠️ **이 실험판은 실차 미검증이며 설치를 권장하지 않습니다.** 시험에 쓰인 정확한 HMG-API 빌드·LX2 후크 맵과 제거·복구 경로가 확인되지 않았습니다. 파일 다운로드가 설치 안전성이나 기능 작동을 뜻하지 않습니다.
+>
+> 공개된 `2.1.4-lx2dev.12-noaa-tbt.1`은 실차 성공이 보고된 원본 `2.1.3-lx2dev.12`와 **다른 빌드**입니다. Android Auto의 계기판·HUD 길안내를 제외했으며 CarPlay와 Android Auto의 기본 연결도 이 실험판에서는 실차 검증되지 않았습니다. 기존 2.1.3 위에 설치하면 버전 상승으로 이전 ZIP으로의 다운그레이드가 거부될 수 있습니다.
+
 > ⚠️ **비공식 실험용 프로젝트 — 설치 전에 읽어 주세요**
 >
 > 이 프로젝트는 현대자동차, 기아 또는 다른 자동차 제조사와 제휴하지 않은 독립 프로젝트이며 제조사의 승인이나 보증을 받지 않았습니다. 설치와 사용은 자발적인 선택이며 사용자 자신의 판단과 책임하에 이루어집니다.
@@ -14,9 +24,9 @@
 
 [English](../README_EN.md) · [호환성](COMPATIBILITY.md) · [시험 결과](TEST_RESULTS.md) · [문제 해결](TROUBLESHOOTING.md)
 
-## 현재 상태 — 설치 파일 배포 전
+## 현재 상태 — 공개 실험판과 원본
 
-이 저장소에는 **설치 ZIP이 없습니다.** `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip`은 개발 산출물에서 확인했지만, 대응 소스와 빌드 일치, 패치 레시피의 재배포 권리를 확인할 때까지 공개하지 않습니다. Release도 발행하지 않았습니다. 아래 모드 설치 절차는 배포가 승인된 경우에 사용할 안내이며 **지금 다운로드하거나 설치할 수 있다는 뜻이 아닙니다.** 출처가 불명확한 ZIP을 사용하지 마세요. [배포 검토](DISTRIBUTION.md).
+위 실험판 ZIP과 체크섬은 Pre-release에서 내려받을 수 있습니다. 원본 실차 성공 보고 대상 `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip`은 배포 보류 상태이며, 공개 실험판과 다릅니다. 공개 실험판의 대응 소스와 고지는 [배포 검토](DISTRIBUTION.md)를 참조하세요. **실차 작동 및 복구 경로가 검증되기 전에는 설치를 권장하지 않습니다.**
 
 ## 실차 시험 범위
 
@@ -39,7 +49,7 @@ Android Auto에서 CarPlay로 전환할 때 처음 검은 화면이 발생했고
 
 ## 설치 안내: NEMESIS → HMG-API → LX2 모드
 
-**아래는 공식 문서에 근거한 절차 설명입니다. 현재 LX2 모드 ZIP, 정확한 호환 HMG-API 빌드 및 재현 가능한 후크 맵 설치 경로가 배포·검증되지 않았으므로 실제 설치를 진행하지 마세요.** 버전마다 메뉴와 설치 경로가 달라질 수 있습니다.
+**아래는 공식 문서에 근거한 절차 설명입니다. 공개 실험판은 실차 미검증이며 정확한 호환 HMG-API 빌드, 재현 가능한 후크 맵 설치 및 복구 경로가 확인되지 않았으므로 실제 설치를 권장하지 않습니다.** 버전마다 메뉴와 설치 경로가 달라질 수 있습니다.
 
 ### 1. 차량과 준비물 확인
 
@@ -68,13 +78,13 @@ USB/
 └── README …
 ```
 
-**모드 설치** — 승인된 모드 ZIP을 압축 해제하지 않고 복사 (현재 배포 전):
+**모드 설치** — 공개 실험판 ZIP을 압축 해제하지 않고 복사 (설치 비권장):
 
 ```text
 USB/
 └── HMGAPI/
     └── updates/
-        └── wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip
+        └── wireless-carplay-aa-lx2dev-2.1.4-lx2dev.12-noaa-tbt.1.zip
 ```
 
 HMG-API의 **직접 USB 방식**은 별도의 `hmgapi-<version>-usb.zip`을 사용하며, 해당 버전 ZIP의 README대로 USB 최상위에 압축을 풉니다. 위 NEMESIS 패키지 구조로 가정하지 마세요.
@@ -97,16 +107,16 @@ HMG-API의 **직접 USB 방식**은 별도의 `hmgapi-<version>-usb.zip`을 사�
 
 앱 메뉴에서 HMG-API를 실행합니다. 타일이 없다면 현재 공식 문서의 대안은 NEMESIS Manager > My Packages > HMG-API > Launch입니다. 앱 상단에서 **Hooks on**과 맵 검사 상태를 확인합니다. ‘Hooks off’, 맵 미확인, 미지원, 부팅 가드 또는 오류가 나타나면 모드 설치를 중단합니다. `Hooks on`은 모든 기능의 성공을 보증하지 않습니다. 실차 시험에 사용된 정확한 맵과 공식 현재 버전의 LX2 호환성은 아직 확보되지 않았습니다. 강제 설치나 맵 검사 우회는 하지 마세요.
 
-### 4. LX2 모드 설치 — ZIP 배포 승인 후에만
+### 4. LX2 모드 설치 — 실차 검증 및 복구 경로 확인 후에만
 
-1. 승인된 Release가 제공되면 `wireless-carplay-aa-lx2dev-2.1.3-lx2dev.12.zip`과 공식적으로 제공된 체크섬을 받아 확인합니다. **현재는 제공되지 않습니다.**
+1. 위 공개 실험판 ZIP과 [SHA256SUMS](https://github.com/lkhwan0204/Palisade-LX2-Wireless-Projection/releases/download/v2.1.4-lx2dev.12-noaa-tbt.1/SHA256SUMS)를 내려받아 체크섬을 확인합니다. **다운로드는 가능하지만 실차 미검증 및 복구 경로 미확인으로 설치를 권장하지 않습니다.**
 2. USB 최상위에 `HMGAPI/updates/` 폴더를 만들고 ZIP을 압축 해제하지 않은 채 복사합니다. HMG-API가 서명과 파일 무결성을 검사하므로 ZIP 내부를 수정하거나 다시 압축하지 않습니다.
 3. 차량에서 HMG-API > **Check USB updates**를 열고 모드를 선택합니다. 작성자·서명·버전·차량 검사 결과를 확인합니다. HMG-API는 처음 보는 작성자에 대해 경고할 수 있으며 이후 업데이트는 동일한 작성자 키가 필요합니다. 신뢰하지 않는 작성자나 호환성 거부가 나오면 중단하세요.
 4. 설치 후 메인 화면에서 **Apply changes**를 누르고 적용 계획과 오류 여부를 확인합니다. 안내에 따라 재시작하고 USB를 뺍니다.
 5. **Mods**에서 모드가 표시되고 활성화되어 있는지 확인합니다. 현재 공식 앱 안내에서는 녹색은 실행, 노란색은 충돌, 빨간색은 미실행 또는 오류, 회색은 꺼짐을 뜻합니다. 화면은 버전에 따라 다를 수 있습니다. ‘Changes not applied’ 또는 ‘Restart needed’가 남으면 상태를 확인하고 안내를 따르세요. [공식 모드 안내](https://github.com/VysseCodes/HMG-API/wiki/Installing-and-removing-mods).
 6. 주차 상태에서 iPhone의 Bluetooth와 Wi-Fi를 켜고 차량 전화/프로젝션 설정에서 페어링한 뒤 CarPlay 요청을 허용합니다. Android는 Bluetooth 및 Wi-Fi를 켜고 차량의 Android Auto 페어링 안내를 따릅니다. USB 메모리나 유선 연결이 무선 연결을 방해할 수 있습니다. 화면·오디오·터치를 주차 중 확인하세요.
 
-### 5. 휴대폰 최초 연결 — ZIP 배포와 호환성 검증 후
+### 5. 휴대폰 최초 연결 — 실차 호환성과 복구 경로 검증 후
 
 **iPhone**
 
