@@ -1,0 +1,5 @@
+# Compatibility / 호환성
+
+The owner reports one limited successful vehicle test: 2021 Hyundai Palisade LX2, Korea, Gen5W, Android 4.4.2, `LX2.KOR.0000.V039.001.260902`, HMG-API `1.0.0-beta.6`, mod `2.1.3-lx2dev.12`. Earlier records mention NEMESIS 1.15; its final version at this test is unknown. The original development README was written before this reported test and describes the build as car-untested. Results have not been independently verified in this documentation task.
+
+Other vehicles, regions, firmware, phones, long-term reliability, newer HMG-API/NEMESIS combinations, exact installation and recovery are unverified. The package manifest lists other models and firmware; a manifest entry is not evidence of test or support. A required LX2 hook map's precise installed version and a reproducible distribution method remain unconfirmed. Current official HMG-API instructions require NEMESIS 1.16+ for the Package Store route; that is not proof this is the tested combination. The install ZIP is withheld: see [distribution](DISTRIBUTION.md).
