@@ -1,0 +1,7 @@
+# Troubleshooting / 문제 해결
+
+Park safely. If installing, stop when the car, firmware or hook map does not match, a compatibility/signature warning is not understood, the app reports hooks off or Boot Guard, or the unit repeatedly restarts. Do not force a map, bypass checks, guess commands, or install packages of unknown origin.
+
+If a projection screen is black, the owner reports Bluetooth reconnection and screen re-entry helped once when switching Android Auto to CarPlay; it is not a guaranteed remedy. Remove the USB, check wireless settings and follow the phone/car prompts while parked. HMG-API's Mods view shows state and errors and its Logs view shows diagnostics. Before sharing logs, remove VIN, serials, phone numbers, MAC addresses, SSIDs, locations and credentials. Even filtered logs require review.
+
+If the app is accessible, the [official mod guide](https://github.com/VysseCodes/HMG-API/wiki/Installing-and-removing-mods) says to use the mod switch to disable it, or select Remove and confirm, then Apply changes; restart when instructed. These steps and recovery have not been independently verified on this vehicle. If the app cannot open or the unit boot-loops, stop and consult the official [troubleshooting](https://github.com/VysseCodes/HMG-API/wiki/Troubleshooting) and [uninstall](https://github.com/VysseCodes/HMG-API/wiki/Uninstalling) instructions matching the installed version. Do not assume a downgrade or a recovery ZIP will work.
